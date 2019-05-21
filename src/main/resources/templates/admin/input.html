@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/course.css}" />
+	<title>講座登録</title>
+</head>
+<body>
+    <h1>講座登録</h1>
+    <h3 class="reds">※  は入力必須です。</h3>	
+    <form th:action="@{/conf}" th:object="${adminForm}" method="post">
+    	<div th:if="${#fields.hasErrors('all')}" class="error">
+			<h4 th:errors="*{all}"></h4>
+		</div>
+	    <br>
+        <table>
+            <tr>
+                <td>講座番号 <span class="reds">※</span></td>
+                <td><input type="text" th:field="*{courseNo}" maxlength="4" th:errorclass="error-input" /></td>
+            </tr>
+            
+            <tr>
+                <td>講座名 <span class="reds">※</span></td>
+                <td><input type="text" th:field="*{courseName}" maxlength="40" th:errorclass="error-input" /></td>
+            </tr>
+            
+            <tr>
+                <td>講座開催日 <span class="reds">※</span></td>
+                <td>
+                	<select th:field="*{year}" th:errorclass="error-input">
+                		<option value=""></option>
+                		<option th:each="y : ${#numbers.sequence(#dates.year(#dates.createNow()),
+                																				#dates.year(#dates.createNow())+5)}"
+                					th:value="${y}" th:text="${y}"></option>
+                    </select> 年
+                    <select th:field="*{month}" th:errorclass="error-input">
+                    	<option value=""></option>
+                    	<option th:each="m : ${#numbers.sequence(1,12)}" th:value="${m}" th:text="${m}"></option>
+		            </select> 月
+                    <select th:field="*{day}" th:errorclass="error-input">
+                    	<option value=""></option>
+                    	<option th:each="d : ${#numbers.sequence(1,31)}" th:value="${d}" th:text="${d}"></option>
+		            </select> 日
+                </td>
+            </tr>
+            
+            <tr>
+                <td>開始時刻 <span class="reds">※</span></td>
+                <td>
+                    <select th:field="*{startHour}" th:errorclass="error-input">
+                        <option value=""></option>
+                        <option th:each="sh : ${#numbers.sequence(10,18)}" th:value="${sh}" th:text="${sh}"></option>
+                    </select> 時
+                    <select th:field="*{startMin}" th:errorclass="error-input">
+                        <option value=""></option>
+                        <option th:each="sm1 : ${#numbers.sequence(0,9)}" th:value="${'0'+sm1}" th:text="${'0'+sm1}"></option>
+                        <option th:each="sm2 : ${#numbers.sequence(10,59)}" th:value="${sm2}" th:text="${sm2}"></option>
+                    </select> 分
+                </td>
+            </tr>
+            <tr>
+                <td>終了時刻 <span class="reds">※</span></td>
+                <td>
+                    <select th:field="*{endHour}" th:errorclass="error-input">
+                        <option value=""></option>
+                        <option th:each="eh : ${#numbers.sequence(10,18)}" th:value="${eh}" th:text="${eh}"></option>
+                    </select> 時
+                    <select th:field="*{endMin}" th:errorclass="error-input">
+                        <option value=""></option>
+						<option th:each="em1 : ${#numbers.sequence(0,9)}" th:value="${'0'+em1}" th:text="${'0'+em1}"></option>
+                        <option th:each="em2 : ${#numbers.sequence(10,59)}" th:value="${em2}" th:text="${em2}"></option>
+                    </select> 分
+                </td>
+            </tr>
+            
+            <tr>
+                <td>定員 <span class="reds">※</span></td>
+                <td><input type="text" th:field="*{capacity}" size="2" maxlength="3" th:errorclass="error-input" /> 人</td>
+            </tr>
+        </table>
+        <br>
+        <div class="btn">
+	        <button type="submit" name="backBtn">戻る</button>
+	        <button type="submit" name="confBtn">確認</button>
+        </div>
+    </form>
+
+</body>
+</html>

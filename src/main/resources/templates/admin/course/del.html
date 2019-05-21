@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/course.css}" />
+	<title>削除確認</title>
+</head>
+<body>
+	<h1>削除確認</h1>
+	<h3 class="blues">削除する講座情報を確認してください。</h3>
+	<form th:action="@{/course/del}" th:object="${duForm}" method="post">
+        <table>
+            <tr>
+                <td class="blues">講座番号</td>
+                <td><span th:text="*{courseNo}"></span></td>
+            </tr>
+            <tr>
+                <td class="blues">講座名</td>
+                <td><span th:text="*{courseName}"></span></td>
+            </tr>
+            <tr>
+                <td class="blues">講座開催日</td>
+                <td>
+                	<span th:text="*{year}"></span><span class="blues"> 年</span>
+                	<span th:text="*{month}"></span><span class="blues"> 月</span>
+                	<span th:text="*{day}"></span><span class="blues"> 日</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="blues">開始時刻</td>
+                <td>
+                	<span th:text="*{startHour}"></span><span class="blues"> 時</span>
+                	<span th:text="*{startMin}"></span><span class="blues"> 分</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="blues">終了時刻</td>
+                <td>
+                	<span th:text="*{endHour}"></span><span class="blues"> 時</span>
+                	<span th:text="*{endMin}"></span><span class="blues"> 分</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="blues">定員</td>
+                <td><span th:text="*{capacity}"></span><span class="blues">人</span><td>
+            </tr>
+        </table>
+        <div class="btn">
+        	<button type="submit" name="listBtn">戻る</button>
+	        <button type="submit" name="endBtn">削除</button>
+        </div>
+    </form>
+</body>

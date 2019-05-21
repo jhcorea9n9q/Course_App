@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+        "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.persistence.UserMapper">
+	<select id="accountCheck" resultType="com.example.domain.CourseUser">
+		SELECT * FROM course_user
+		<where>
+				user_id = #{userId} AND passwd = #{passwd}
+		</where>
+	</select>
+	<select id="selectOne" resultType="Integer">
+		SELECT COUNT(*) FROM course_user WHERE user_id = #{userId}
+	</select>
+	<insert id="userInsert">
+		INSERT INTO course_user (user_id, passwd, inp_date)
+		VALUES (#{userId},#{passwd}, NOW())
+	</insert>
+</mapper>

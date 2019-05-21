@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/course.css}" />
+	<title>講座一覧</title>
+</head>
+<body>
+    <h1>講座一覧</h1>	
+    <div th:if="${courseList} and ${courseList.size()} == 0">
+      <p>検索条件に一致する講座がありませんでした。</p>
+    </div>
+    <div id="divList" th:if="${courseList} and ${courseList.size()} > 0">
+     	<table id="courseList">
+     		<tr>
+     			<th>講座番号</th>
+     			<th>講座名</th>
+     			<th>開催日時</th>
+     			<th>定員</th>
+     			<th>状態</th>
+     			<th></th>
+     		</tr>
+     		<tr th:each="sForm : ${courseList}">
+		        <td th:text="${sForm.courseNo}"></td>
+		        <td th:text="${sForm.courseName}"></td>
+		        <td th:if="${dateTime}" th:text="${dateTime[__${sFormStat.index}__]}"></td>
+		        <td th:text="${sForm.capacity}"></td>
+		        <td th:if="${state}" th:text="${state[__${sFormStat.index}__]}"></td>
+		        <td>
+		        	<form th:action="@{/course/list/upd-or-del}" method="post">
+		        		<div class="btn3">
+			        		<button type="submit" name="updBtn" th:value="${sForm.courseNo}">修正</button>
+			        		<button type="submit" name="delBtn" th:value="${sForm.courseNo}">削除</button>
+			        	</div>
+		        	</form>
+		        </td>
+			</tr>
+     	</table>
+    </div>
+    <br />
+    <form th:action="@{/course/list/back}" th:object="${searchForm}" method="post">
+    	<div class="btn2">
+    		<button type="submit" name="searchBtn">講座検索</button>
+    	</div>
+    </form>
+</body>
+</html>

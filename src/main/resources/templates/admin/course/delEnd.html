@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/course.css}" />
+	<title>削除完了</title>
+</head>
+<body>
+	<h1>削除完了</h1>
+	<h3 class="blues">削除を完了しました。</h3>
+	<br>
+	<form th:action="@{/course/del/end}" method="post">
+		<div class="btn">
+    		<button type="submit" name="menuBtn">講座管理メニュー</button><br>
+	        <button type="submit" name="searchBtn">講座検索</button><br>
+	        <button type="submit" name="listBtn">講座一覧</button><br>
+	        <button type="submit" name="logoutBtn">ログアウト</button>
+    	</div>
+	</form>
+</body>

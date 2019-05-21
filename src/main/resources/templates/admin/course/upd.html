@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/course.css}" />
+	<title>講座修正</title>
+</head>
+<body>
+    <h1>講座修正</h1>
+    <form th:action="@{/course/upd}" th:object="${duForm}" method="post">
+    	<div th:if="${#fields.hasErrors('all')}" class="error">
+			<h4 th:errors="*{all}"></h4>
+		</div>
+	    <br>
+        <table>
+            <tr>
+                <td class="blues">講座番号</td>
+                <td><span th:text="*{courseNo}"></span></td>
+            </tr>
+            
+            <tr>
+                <td class="blues">講座名</td>
+                <td><input type="text" th:field="*{courseName}" maxlength="40" th:errorclass="error-input" /></td>
+            </tr>
+            
+            <tr>
+                <td class="blues">講座開催日</td>
+                <td>
+                	<select th:field="*{year}" th:errorclass="error-input">
+                		<option value=""></option>
+                		<option th:each="y : ${#numbers.sequence(#dates.year(#dates.createNow()),
+                																				#dates.year(#dates.createNow())+5)}"
+                					th:value="${y}" th:text="${y}"></option>
+                    </select><span class="blues"> 年</span>
+                    <select th:field="*{month}" th:errorclass="error-input">
+                    	<option value=""></option>
+                    	<option th:each="m : ${#numbers.sequence(1,12)}" th:value="${m}" th:text="${m}"></option>
+		            </select><span class="blues"> 月</span>
+                    <select th:field="*{day}" th:errorclass="error-input">
+                    	<option value=""></option>
+                    	<option th:each="d : ${#numbers.sequence(1,31)}" th:value="${d}" th:text="${d}"></option>
+		            </select><span class="blues"> 日</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="blues">開始時刻</td>
+                <td>
+                    <select th:field="*{startHour}" th:errorclass="error-input">
+                        <option value=""></option>
+                        <option th:each="sh : ${#numbers.sequence(10,18)}" th:value="${sh}" th:text="${sh}"></option>
+                    </select><span class="blues"> 時</span>
+                    <select th:field="*{startMin}" th:errorclass="error-input">
+                        <option value=""></option>
+                        <option th:each="sm1 : ${#numbers.sequence(0,9)}" th:value="${'0'+sm1}" th:text="${'0'+sm1}"></option>
+                        <option th:each="sm2 : ${#numbers.sequence(10,59)}" th:value="${sm2}" th:text="${sm2}"></option>
+                    </select><span class="blues"> 分</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="blues">終了時刻</td>
+                <td>
+                    <select th:field="*{endHour}" th:errorclass="error-input">
+                        <option value=""></option>
+                        <option th:each="eh : ${#numbers.sequence(10,18)}" th:value="${eh}" th:text="${eh}"></option>
+                    </select><span class="blues"> 時</span>
+                    <select th:field="*{endMin}" th:errorclass="error-input">
+                        <option value=""></option>
+						<option th:each="em1 : ${#numbers.sequence(0,9)}" th:value="${'0'+em1}" th:text="${'0'+em1}"></option>
+                        <option th:each="em2 : ${#numbers.sequence(10,59)}" th:value="${em2}" th:text="${em2}"></option>
+                    </select><span class="blues"> 分</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="blues">定員</td>
+                <td><input type="text" th:field="*{capacity}" size="2" maxlength="3" th:errorclass="error-input" /> 人</td>
+            </tr>
+        </table>
+        <br>
+        <div class="btn">
+	        <button type="submit" name="listBtn">戻る</button>
+	        <button type="submit" name="confBtn">確認</button>
+        </div>
+    </form>
+
+</body>
+</html>

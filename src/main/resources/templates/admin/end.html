@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/course.css}" />
+    <title>登録完了</title>
+</head>
+<body>
+    <h1>登録完了</h1>
+    <h3>講座登録を完了しました。</h3>
+    <form th:action="@{/end}" method="post">
+    	<div class="btn">
+    		<button type="submit" name="menuBtn">講座管理メニュー</button><br>
+	        <button type="submit" name="inputBtn">追加登録</button>
+    	</div>
+    </form>
+</body>
+</html>

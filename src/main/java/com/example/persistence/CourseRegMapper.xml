@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+        "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.persistence.CourseRegMapper">
+	<insert id="insert">
+		INSERT INTO course
+		VALUES (#{courseNo}, #{courseName}, #{theDate}, #{startTime}, #{endTime}, #{capacity}, NOW(), CURRENT_TIMESTAMP())
+	</insert>
+    <select id="selectOne" resultType="Integer">
+    	SELECT COUNT(*) FROM course WHERE course_no = #{courseNo}
+    </select>
+</mapper>

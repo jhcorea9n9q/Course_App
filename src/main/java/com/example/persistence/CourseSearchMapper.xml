@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+        "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.persistence.CourseSearchMapper">
+    <select id="selectList" resultType="com.example.domain.CourseReg">
+        <bind name="cNoLike" value="'%' + courseNo + '%'"/>
+        <bind name="cNmLike" value="'%' + courseName + '%'"/>
+        <bind name="yLike" value="year + '-%'"/>
+        <bind name="mLike" value="'%-' + month + '-%'"/>
+        <bind name="dLike" value="'%-' + day"/>
+        <bind name="shLike" value="startHour + ':%'"/>
+        <bind name="smLike" value="'%:' + startMin"/>
+        <bind name="ehLike" value="endHour + ':%'"/>
+        <bind name="emLike" value="'%:' + endMin"/>
+        SELECT * FROM course
+        <where>
+            <if test="courseNo != ''">
+                course_no LIKE #{cNoLike}
+            </if>
+            <if test="courseName != ''">
+                AND course_name LIKE #{cNmLike}
+            </if>
+            <if test="year != ''">
+                AND the_date LIKE #{yLike}
+            </if>
+            <if test="month != ''">
+                AND the_date LIKE #{mLike}
+            </if>
+            <if test="day != ''">
+                AND the_date LIKE #{dLike}
+            </if>
+            <if test="startHour != ''">
+                AND start_time LIKE #{shLike}
+            </if>
+            <if test="startMin != ''">
+                AND start_time LIKE #{smLike}
+            </if>
+            <if test="endHour != ''">
+                AND end_time LIKE #{ehLike}
+            </if>
+            <if test="endMin != ''">
+                AND end_time LIKE #{emLike}
+            </if>
+            <if test="capacityMin != null">
+                <![CDATA[ AND capacity >= #{capacityMin} ]]>
+            </if>
+            <if test="capacityMax != null">
+                <![CDATA[ AND capacity <= #{capacityMax} ]]>
+            </if>
+            <if test="state == '開催中'">
+                AND the_date = DATE(NOW())
+            </if>
+            <if test="state == '終了'">
+                <![CDATA[ AND the_date < DATE(NOW()) ]]>
+            </if>
+            <if test="state == '開催予定'">
+                <![CDATA[ AND the_date > DATE(NOW()) ]]>
+            </if>
+        </where>
+        ORDER BY course_no, course_name, the_date, start_time, end_time
+    </select>
+    <select id="selectOne" resultType="com.example.domain.CourseReg">
+    	SELECT * FROM course
+    	<where>
+    		course_no = #{courseNo}
+    	</where>
+    </select>
+    <delete id="courseDel">
+    	DELETE FROM course WHERE course_no = #{courseNo}
+    </delete>
+    <update id="courseUdp">
+    	UPDATE course SET
+    	course_name = #{courseName},
+		the_date = #{theDate},
+		start_time = #{startTime}, 
+		end_time = #{endTime}, 
+		capacity = #{capacity}
+		WHERE course_no = #{courseNo}
+    </update>
+</mapper>

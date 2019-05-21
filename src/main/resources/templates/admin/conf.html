@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/course.css}" />
+	<title>登録確認</title>
+</head>
+<body>
+	<h1>登録確認</h1>
+    <h3 class="reds">※  入力内容を確認してください。</h3>
+    <form th:action="@{/insert}" th:object="${adminForm}" method="post">
+        <table>
+            <tr>
+                <td>講座番号</td>
+                <td><span th:text="*{courseNo}" class="blues"></span></td>
+            </tr>
+            <tr>
+                <td>講座名</td>
+                <td><span th:text="*{courseName}" class="blues"></span></td>
+            </tr>
+            <tr>
+                <td>講座開催日</td>
+                <td>
+                	<span th:text="*{year}" class="blues"></span> 年
+                	<span th:text="*{month}" class="blues"></span> 月
+                	<span th:text="*{day}" class="blues"></span> 日
+                </td>
+            </tr>
+            <tr>
+                <td>開始時刻</td>
+                <td>
+                	<span th:text="*{startHour}" class="blues"></span> 時
+                	<span th:text="*{startMin}" class="blues"></span> 分
+                </td>
+            </tr>
+            <tr>
+                <td>終了時刻</td>
+                <td>
+                	<span th:text="*{endHour}" class="blues"></span> 時
+                	<span th:text="*{endMin}" class="blues"></span> 分
+                </td>
+            </tr>
+            <tr>
+                <td>定員</td>
+                <td><span th:text="*{capacity}" class="blues"></span>人<td>
+            </tr>
+        </table>
+        <div class="btn">
+        	<button type="submit" name="backBtn">戻る</button>
+	        <button type="submit" name="insertBtn" value="confirm">登録</button>
+        </div>
+    </form>
+</body>
+</html>

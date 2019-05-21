@@ -1,0 +1,102 @@
+html, body { text-align: center; background-color: lightcyan; }
+
+h1 { color:blue; }
+
+form { display: inline-block; text-align: left; }
+
+button {
+            width: 200px;
+            height: 40px;
+            border: green solid 2px;
+            border-radius: 5px;
+            background-color: lightgreen;
+            color: blue;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 15px 20px;
+        }
+        
+button:hover {
+	cursor: pointer;
+	animation-name: button;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes button {
+    0% {
+        background: linear-gradient(to right bottom, white, lightgreen); 
+    }
+    25% {
+        background: linear-gradient(to right bottom, lightgreen, white 25%, lightgreen); 
+    }
+    50% {
+        background: linear-gradient(to right bottom, lightgreen, white 50%, lightgreen); 
+    }
+    75% {
+        background: linear-gradient(to right bottom, lightgreen, white 75%, lightgreen); 
+    }
+    100% {
+        background: linear-gradient(to right bottom, lightgreen, white);
+    }
+}
+        
+.btn { text-align: center; }
+
+.btn2 {
+	display: block;
+	text-align: right;
+	margin-left: 550px;
+}
+
+.reds { color: red; }
+
+.blues { color: blue;}
+
+.error {
+ 			display: inline-block;
+            width: 500px;
+            height: auto;
+            background-color: yellow;
+            border: 1px solid blue;
+            color: red;
+            text-align: left;
+           	padding-left: 20px;
+           	margin-bottom: 30px;
+        }
+        
+.error-input {
+    background-color: #FFB6C1;
+}
+
+#userDiv {
+	position: absolute;
+    right: 20px;
+    top: 15px;
+}
+#divList {
+	display: inline-block;
+}
+#courseList, #courseList th, #courseList td {
+	border: 1px black solid;
+	border-collapse: collapse;
+}
+#courseList th {
+	background-color: blue;
+	color: white;
+	padding: 5px 10px;
+}
+#courseList td {
+	background-color: white;
+	padding: 5px 10px;
+}
+#courseList td button {
+	width: 60px;
+    height: 30px;
+    border: green solid 1px;
+    border-radius: 4px;
+    background-color: lightgreen;
+    color: blue;
+    font-size: 12px;
+    margin: 3px;
+}

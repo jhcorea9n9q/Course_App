@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/course.css}" />
+	<meta http-equiv="Refresh" content="10; url=/input" />
+	<title>講座管理メニュー</title>
+</head>
+<body>
+	<div id="userDiv" th:if="${userForm.userId}">
+		<h4 th:text="'「'+${userForm.userId}+'」ユーザでログイン中'"></h4>
+	</div>
+    <h1>講座管理メニュー</h1>
+    <h3>「講座登録」 または、 「講座修正削除」ボタンを押してください。</h3>
+    <form action="/input" method="post">
+    	<div class="btn">
+    		<button type="submit" name="inputBtn">講座登録</button><br>
+	    	<button type="submit" name="courseBtn">講座修正削除</button>
+    	</div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/course.css}" />
+	<title>ユーザ登録完了</title>
+</head>
+<body>
+	<h1>ユーザ登録完了</h1>
+	<form th:action="@{/menu}" th:object="${userForm}" method="post">
+        <table>
+            <tr>
+                <td class="blues">ユーザID</td>
+                <td><span th:text="*{userId}"></span></td>
+            </tr>
+        </table>
+        <h3 class="blues">上記IDでユーザが登録されました。</h3>
+        <div class="btn">
+        	<button type="submit" name="course">講座申込み</button><br>
+	        <button type="submit" name="logout">ログアウト</button>
+        </div>
+    </form>
+</body>
