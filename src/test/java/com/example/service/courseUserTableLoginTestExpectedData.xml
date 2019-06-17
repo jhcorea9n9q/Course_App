@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<course_user user_id="user1" passwd="1111"
+	authority="1" inp_date="2019-06-12" />
+</dataset>

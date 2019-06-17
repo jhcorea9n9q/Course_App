@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<course_user user_id="root" passwd="1234"
+	authority="0" inp_date="2019-04-01" />
+	<course_user user_id="user1" passwd="1111"
+	authority="1" inp_date="2019-06-12" />
+	<course_user user_id="testUser" passwd="0000"
+	authority="1" inp_date="2019-06-12" />
+	<course_user user_id="tester01" passwd="test"
+	authority="1" inp_date="2019-06-12" />
+	<course_user user_id="useruser" passwd="12345678"
+	authority="1" inp_date="2019-06-12" />
+	<course_user user_id="insert" passwd="insert" 
+	authority="1" inp_date="2019-06-17" />
+</dataset>

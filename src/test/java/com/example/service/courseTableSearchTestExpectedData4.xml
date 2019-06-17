@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<course course_no="0006" course_name="PHP講座"
+	 the_date="2020-07-17" start_time="10:00" end_time="18:00"
+	  capacity="31" inp_date="2019-06-13" />
+</dataset>

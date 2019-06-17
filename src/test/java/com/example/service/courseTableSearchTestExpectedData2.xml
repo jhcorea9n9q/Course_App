@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<course course_no="0009" course_name="MySQLとRDB"
+	 the_date="2019-06-17" start_time="10:00" end_time="18:00"
+	  capacity="50" inp_date="2019-06-13" />
+</dataset>

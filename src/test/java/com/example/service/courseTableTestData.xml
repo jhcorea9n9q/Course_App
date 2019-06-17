@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<course course_no="0001" course_name="JAVA基礎01"
+	 the_date="2019-07-05" start_time="10:00" end_time="13:30"
+	  capacity="42" inp_date="2019-06-10" />
+	<course course_no="0002" course_name="JAVA基礎02"
+	 the_date="2019-07-05" start_time="15:00" end_time="18:30"
+	  capacity="18" inp_date="2019-06-10" />
+	<course course_no="0003" course_name="Node.js"
+	 the_date="2019-07-07" start_time="10:00" end_time="18:00"
+	  capacity="50" inp_date="2019-06-10" />
+</dataset>

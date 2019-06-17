@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<course course_no="0001" course_name="JAVA基礎01"
+	 the_date="2019-06-09" start_time="10:00" end_time="18:30"
+	  capacity="10" inp_date="2019-06-13" />
+	<course course_no="0004" course_name="JAVA基礎03"
+	 the_date="2019-06-20" start_time="10:30" end_time="13:30"
+	  capacity="22" inp_date="2019-06-13" />
+	<course course_no="0006" course_name="PHP講座"
+	 the_date="2020-07-17" start_time="10:00" end_time="18:00"
+	  capacity="31" inp_date="2019-06-13" />
+	<course course_no="0009" course_name="MySQLとRDB"
+	 the_date="2019-06-17" start_time="10:00" end_time="18:00"
+	  capacity="50" inp_date="2019-06-13" />
+</dataset>

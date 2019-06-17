@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<course course_no="0004" course_name="JAVA基礎03"
+	 the_date="2019-06-20" start_time="10:30" end_time="13:30"
+	  capacity="22" inp_date="2019-06-13" />
+	<course course_no="0010" course_name="Python中級講座"
+	 the_date="2023-12-17" start_time="12:30" end_time="14:30"
+	  capacity="46" inp_date="2019-06-13" />
+</dataset>

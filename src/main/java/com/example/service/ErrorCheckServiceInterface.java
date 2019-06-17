@@ -6,7 +6,6 @@ import com.example.domain.CourseReg;
 import com.example.domain.CourseUser;
 import com.example.web.AdminForm;
 import com.example.web.DUForm;
-import com.example.web.SearchForm;
 import com.example.web.UserForm;
 
 public interface ErrorCheckServiceInterface {

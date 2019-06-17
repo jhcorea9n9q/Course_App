@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<course course_no="0003" course_name="Node.js"
+	 the_date="2019-06-17" start_time="17:00" end_time="18:00"
+	  capacity="20" inp_date="2019-06-13" />
+</dataset>
